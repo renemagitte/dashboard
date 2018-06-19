@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import Clock from './components/Clock';
+import Cartoon from './components/Cartoon';
+import Tarot from './components/Tarot';
 
 class App extends Component {
     
     state = {
         theme: 'defaultTheme',
-        toggleSettings: true
+        toggleSettings: false
     }
 
     handleToggle = () => {
@@ -18,8 +21,11 @@ class App extends Component {
     
   render() {
      
-    let settingsClass = 'settingsContainer';
+    let settingsClass = 'settingsContainer w3-animate-opacity';
     if(!this.state.toggleSettings){ settingsClass += ' invisible'; }
+      
+    let bonusWidget = <Tarot />
+    if(this.state.theme === 'incrementalGameTheme'){ bonusWidget = <Cartoon />}
     
     return (
 
@@ -48,12 +54,15 @@ class App extends Component {
         </div>
         
             <div className="row">
+                <Clock />
+              
               <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
               <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
               <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
               <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
-              <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
-              <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
+      { /* <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div> */ }
+      { bonusWidget }
+                
             </div>
         </div>
     </React.Fragment>

@@ -40,10 +40,18 @@
     background-position: bottom;
 }
 
-
-.oldThemeCard{
+.cartoonContainer{
+    margin: 20px;
+    padding: 30px;
+    background-color: #ffffff;
     font-family: 'Yeon Sung', cursive;
+    color: black;
 }
+.cartoonContainer img{
+    width: 140px;
+}
+
+
 
 @media screen and (max-width: 767px) {
     .row{
