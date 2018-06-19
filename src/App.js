@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './components/Clock';
+import Whether from './components/Whether';
+import Currency from './components/Currency';
 import Cartoon from './components/Cartoon';
 import Tarot from './components/Tarot';
 
@@ -57,36 +59,37 @@ class App extends Component {
                 <ion-icon name="close"></ion-icon>
             </div>
         
-            <div class="btn-group">
-              <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div className="btn-group">
+              <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Choose theme
               </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" onClick={() => this.setTheme('defaultTheme')}>Default Theme</a>
-                <a class="dropdown-item" onClick={() => this.setTheme('incrementalGameTheme')}>Ode To Incremental Game Theme</a>
+              <div className="dropdown-menu">
+                <a className="dropdown-item" onClick={() => this.setTheme('defaultTheme')}>Default Theme</a>
+                <a className="dropdown-item" onClick={() => this.setTheme('incrementalGameTheme')}>Ode To Incremental Game Theme</a>
               </div>
             </div>
       
       
-            <div class="btn-group">
-              <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div className="btn-group">
+              <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Choose tarot deck
               </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" onClick={() => this.setTarotDeck('rider')}>Rider Waite (Classic)</a>
-                <a class="dropdown-item" onClick={() => this.setTarotDeck('cats-eye')}>Cat's eye</a>
-                <a class="dropdown-item" onClick={() => this.setTarotDeck('gummybear')}>Gummy Bear</a>
+              <div className="dropdown-menu">
+                <a className="dropdown-item" onClick={() => this.setTarotDeck('rider')}>Rider Waite (Classic)</a>
+                <a className="dropdown-item" onClick={() => this.setTarotDeck('cats-eye')}>Cat's eye</a>
+                <a className="dropdown-item" onClick={() => this.setTarotDeck('gummybear')}>Gummy Bear</a>
       
               </div>
             </div>
+            Refresh page to get the new tarot deck.
       
         </div>
         
             <div className="row">
                 <Clock />
+                <Whether />
+                <Currency />
               
-              <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
-              <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
               <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
               <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
       { /* <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div> */ }

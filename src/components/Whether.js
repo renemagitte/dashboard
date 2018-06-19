@@ -22,11 +22,10 @@ class Clock extends Component {
     return (
         <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">
         
-            <div className="innerWidget clockContainer">
+            <div className="innerWidget whetherContainer">
                 <span className="iconSize">
-                    <ion-icon name="time"></ion-icon>
+                    <ion-icon name="cloud"></ion-icon>
                 </span>
-                { this.state.time.toLocaleTimeString()}
             </div>
         
         </div>

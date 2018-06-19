@@ -14,6 +14,8 @@ html, body{
     text-align: center;
 }
 
+
+
 .totalContainer{
     width: 100%;
 }
@@ -36,8 +38,16 @@ html, body{
 
 
 .clockContainer{
-    font-size: 4em;
-    
+
+}
+
+.cardObject{
+    border: 1px solid green;
+}
+.cardObjectOverlay{
+    z-index: 96;
+    position: absolute;
+    border: 1px solid red;
 }
 
 .cartoonContainer{
@@ -78,15 +88,27 @@ html, body{
     .innerWidget{
         width: 100%;
     }
+    .iconSize{
+        font-size: 8em;
+        padding: 15px;
+    }
 }
 @media screen and (min-width: 768px) {
     .row{
         height: 300vh;
     }
+    .iconSize{
+        font-size: 6em;
+        padding: 15px;
+    }
 }
 @media screen and (min-width: 1024px) {
     .row{
         height: 100vh;
+    }
+    .iconSize{
+        font-size: 3em;
+        padding: 15px;
     }
 }
 
