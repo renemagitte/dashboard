@@ -1,0 +1,45 @@
+.widget{
+    border: 1px solid black;
+}
+
+.container{
+    width: 100%;
+}
+.defaultTheme{
+    background-color: lightgrey;    
+}
+
+.oldTheme{
+    background-image: url(img/fireblackbg.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    background-position: bottom;
+}
+
+
+.oldThemeCard{
+    font-family: 'Yeon Sung', cursive;
+}
+
+@media screen and (max-width: 767px) {
+    .row{
+        height: 600vh;
+    }
+}
+@media screen and (min-width: 768px) {
+    .row{
+        height: 300vh;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .row{
+        height: 100vh;
+    }
+}
+
+/*
+  sm: 480px,
+  md: 768px,
+  lg: 1024px
+*/
