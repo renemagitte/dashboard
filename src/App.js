@@ -33,6 +33,9 @@ class App extends Component {
         <div className={'totalContainer ' + this.state.theme }>
         
         <div className={settingsClass}>
+            <div className="settingsCloseDiv" onClick={this.handleToggle}>
+                <ion-icon name="close"></ion-icon>
+            </div>
             <div class="btn-group">
               <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Choose theme
