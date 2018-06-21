@@ -38,7 +38,7 @@ html, body{
 
     .iconSize{
         width: 100%;
-        border: 1px solid green;
+/*        border: 1px solid green;*/
     }
 
 
@@ -69,6 +69,17 @@ html, body{
 }
 .cartoonContainer img{
     width: 140px;
+}
+
+.noteContainer{
+    
+}
+textarea{
+    width: 90%;
+    height: 190px;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.4em;
+    border: none;
 }
 
 
@@ -102,7 +113,7 @@ html, body{
     }
     .iconSize{
         font-size: 8em;
-        padding: 15px;
+        padding: 10px;
     }
 }
 @media screen and (min-width: 768px) {
@@ -112,7 +123,7 @@ html, body{
     .iconSize{
         color: lightgrey;
         font-size: 6em;
-        padding: 15px;
+        padding: 10px;
     }
 }
 @media screen and (min-width: 1024px) {
@@ -121,7 +132,18 @@ html, body{
     }
     .iconSize{
         font-size: 3em;
-        padding: 15px;
+        padding: 0px;
+        height: 60px;
+    }
+    
+    .clockContainer{
+        height: 70%;
+    }
+    
+    .tarotContainer{
+        border: 1px solid red;
+        height: 110%;
+        margin-top: -50px;
     }
 }
 

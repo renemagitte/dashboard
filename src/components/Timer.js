@@ -2,65 +2,44 @@ import React, { Component } from 'react';
 
 class Timer extends Component {
     
-    state = {
-        milliseconds: 300000
-      }
+        state = {
+            milliseconds: 20000,
+          }
 
-//      componentDidMount() {
-//        setInterval(
-//          () => this.setTime(),
-//          1000
-//        );
-//      }
-    
-      countdown = () => {
-        setInterval(
-          () => this.magic(),
-          1000
-        );
-      }
-      
-      magic = () => {
-            this.setState({ milliseconds: this.state.milliseconds - 1000 });
-      }
-      
-      convertMilliseconds = () => {
+          countdown = () => {
+                setInterval(
+                  () => this.setMs(),
+                  1000
+                );
+          }
 
-            var day, hour, minute, seconds;
-            seconds = Math.floor(this.state.milliseconds / 1000);
-            minute = Math.floor(seconds / 60);
-            seconds = seconds % 60;
-            hour = Math.floor(minute / 60);
-            minute = minute % 60;
-            day = Math.floor(hour / 24);
-            hour = hour % 24;
-            return [
-                day: day,
-                hour: hour,
-                minute: minute,
-                seconds: seconds
-            ];
-        }
+          setMs = () => {
+                this.setState({ milliseconds: this.state.milliseconds - 1000 });
+          }
       
-      
-    msToTime = (duration) => {
-        var milliseconds = parseInt((duration%1000)/100)
-            , seconds = parseInt((duration/1000)%60)
-            , minutes = parseInt((duration/(1000*60))%60)
-            , hours = parseInt((duration/(1000*60*60))%24);
+          msToTime = (duration) => {
+                var milliseconds = parseInt((duration%1000)/100)
+                    , seconds = parseInt((duration/1000)%60)
+                    , minutes = parseInt((duration/(1000*60))%60)
+                    , hours = parseInt((duration/(1000*60*60))%24);
 
-//        hours = (hours < 10) ? "0" + hours : hours;
-        minutes = (minutes < 10) ? "0" + minutes : minutes;
-        seconds = (seconds < 10) ? "0" + seconds : seconds;
+                /* hours = (hours < 10) ? "0" + hours : hours; */
+                minutes = (minutes < 10) ? "0" + minutes : minutes;
+                seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-        return /* hours + ":" + */ minutes + ":" + seconds /* + "." + milliseconds */ ;
-    }
+                return /* hours + ":" + */ minutes + ":" + seconds /* + "." + milliseconds */ ;
+          }
           
 
   render() {
 
-    let hej = this.convertMilliseconds();
-      
+    /* Took the easy way out here. The countdown doesn't really stop, but it looks like it: */
+    let countdown;
+    if(this.state.milliseconds > 0){
+        countdown = this.msToTime(this.state.milliseconds);
+    }else{
+        countdown = '00:00';
+    }
     
     
     return (
@@ -70,7 +49,8 @@ class Timer extends Component {
                 <div className="iconSize">
                     <ion-icon name="timer"></ion-icon>
                 </div>
-                { this.msToTime(this.state.milliseconds) }
+        
+                { countdown }
         
                 <button onClick={this.countdown} className="btn btn-primary">Start</button>
             </div>

@@ -14,8 +14,14 @@ class Tarot extends Component {
 //    }
 
     pickACard = () => {
-        let number = Math.floor(Math.random() * 78) + 1  
-        return `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg`
+        let number = Math.floor(Math.random() * 78) + 1;
+        
+//        return `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg`
+        
+//        this.setState({ card: `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg` });
+        
+        let newCard = `require(\'https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg\')`;
+        this.setState({ card: newCard });
     }
     
 //    setTurnedCard = () => {
@@ -23,11 +29,11 @@ class Tarot extends Component {
 //    }
     
     
-    setCard = () => {
-        let number = Math.floor(Math.random() * 78) + 1  
-        let newCard = 'https://gfx.tarot.com/images/site/decks/{this.state.tarotDeck}/full_size/{number}.jpg';
-        this.setState({ card: newCard });
-    }
+//    setCard = () => {
+//        let number = Math.floor(Math.random() * 78) + 1  
+//        let newCard = 'https://gfx.tarot.com/images/site/decks/{this.state.tarotDeck}/full_size/{number}.jpg';
+//        this.setState({ card: newCard });
+//    }
     
     componentDidMount() {
         if(localStorage.getItem('tarotDeck')){ 
@@ -38,25 +44,28 @@ class Tarot extends Component {
 
 
   render() {
+
       
       { /* let card = tarotCardBack; */ }
       
             
-    let backOfCard = 'cardObject cardObjectOverlay';
-    if(!this.state.turnedCard){ backOfCard += ' visible'; }
+//    let backOfCard = 'cardObject cardObjectOverlay';
+//    if(!this.state.turnedCard){ backOfCard += ' visible'; }
     
     return (
         
         <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">
-            <div className="innerWidget cartoonContainer">
+            <div className="innerWidget tarotContainer">
                 <div className="iconSize">
                     <ion-icon name="planet"></ion-icon>
                 </div>
 
-                <div className="cardObject" onClick={() => this.componentDidMount}>
+                <div className="cardObject">
                     
-                    <img src={this.state.card} onClick={() => this.componentDidMount} />
+                    <img src={this.state.card} />
                 </div>
+
+                <button onClick={() => this.pickACard } className="btn btn-primary">Pick a card</button>
         
             </div>
         

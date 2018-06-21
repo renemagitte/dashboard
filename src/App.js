@@ -4,8 +4,10 @@ import Clock from './components/Clock';
 import Whether from './components/Whether';
 import Currency from './components/Currency';
 import Timer from './components/Timer';
+import Note from './components/Note';
 import Cartoon from './components/Cartoon';
 import Tarot from './components/Tarot';
+
 
 class App extends Component {
     
@@ -90,11 +92,14 @@ class App extends Component {
                 <Clock />
                 <Whether />
                 <Currency />
+                { bonusWidget }
                 <Timer />
+                
+                <Note />
               
               <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
       { /* <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div> */ }
-      { bonusWidget }
+      
                 
             </div>
         </div>
