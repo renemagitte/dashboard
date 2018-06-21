@@ -36,6 +36,11 @@ html, body{
     text-align: center;
 }
 
+    .iconSize{
+        width: 100%;
+        border: 1px solid green;
+    }
+
 
 
 

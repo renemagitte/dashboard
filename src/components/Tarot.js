@@ -49,9 +49,9 @@ class Tarot extends Component {
         
         <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">
             <div className="innerWidget cartoonContainer">
-                <span className="iconSize">
+                <div className="iconSize">
                     <ion-icon name="planet"></ion-icon>
-                </span>
+                </div>
 
                 <div className="cardObject" onClick={() => this.componentDidMount}>
                     
