@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
+import Widget from './Widget'
+import Icon from './Icon'
 import tarotCardBack from './../img/tarotCardBack.jpg'
 
 class Tarot extends Component {
     
     state = {
         tarotDeck: 'rider',
-        card: tarotCardBack
-        
+        card: tarotCardBack,
+        turned: false,
+        cardBaseUrl: 'https://gfx.tarot.com/images/site/decks/'
     }
 
-//    componentDidMount() {
-//        this.setState({ tarotDeck: this.props.tarotDeck });
-//    }
+    componentDidMount() {
+        this.setState({ tarotDeck: this.props.tarotDeck });
+    }
 
     pickACard = () => {
-        let number = Math.floor(Math.random() * 78) + 1;
+        this.setState({ turned: true });
+        
+//        let number = Math.floor(Math.random() * 78) + 1;
         
 //        return `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg`
         
 //        this.setState({ card: `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg` });
-        
-        let newCard = `require(\'https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg\')`;
-        this.setState({ card: newCard });
+//        let newCard = `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg`
+//        
+//        let newCardReq = `require(${newCard})`;
+//        this.setState({ card: newCardReq });
+//        return newCardReq;
     }
     
 //    setTurnedCard = () => {
@@ -44,6 +51,15 @@ class Tarot extends Component {
 
 
   render() {
+      
+      let showCard = this.state.card;
+      
+      if(this.state.turned === true){
+        let number = Math.floor(Math.random() * 78) + 1;
+//        let newCard = `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg`;
+//        showCard = `require(${newCard})`;
+          
+      }
 
       
       { /* let card = tarotCardBack; */ }
@@ -54,22 +70,17 @@ class Tarot extends Component {
     
     return (
         
-        <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">
-            <div className="innerWidget tarotContainer">
-                <div className="iconSize">
-                    <ion-icon name="planet"></ion-icon>
-                </div>
+        <Widget widgetStyling="tarotContainer">
 
-                <div className="cardObject">
+                <Icon icon="planet" />
+
+                    <img src={{uri : 'https://gfx.tarot.com/images/site/decks/rider/full_size/33.jpg' }} />
                     
-                    <img src={this.state.card} />
-                </div>
 
-                <button onClick={() => this.pickACard } className="btn btn-primary">Pick a card</button>
+                <button onClick={() => this.pickACard() } className="btn btn-primary">Pick a card</button>
         
-            </div>
         
-        </div>
+        </Widget>
 
 
         

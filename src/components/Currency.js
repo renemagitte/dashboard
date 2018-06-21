@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Widget from './Widget'
+import Icon from './Icon'
 
 class Currency extends Component {
     
@@ -32,27 +34,21 @@ class Currency extends Component {
 
 
   render() {
-     
-      console.log(this.state.array)
 
       
     return (
-        <React.Fragment>
-        <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">
+
+        <Widget widgetStyling="currencyContainer">
         
-            <div className="innerWidget currencyContainer">
-                <div className="iconSize">
-                    <ion-icon name="cash"></ion-icon>
-                </div>
+
+                <Icon icon="cash" />
               
                 1 EUR = {this.state.currentSEK} SEK <br/>
                 Uppdaterat: {this.state.date}
         <button onClick={this.fetchCurrency} className="btn btn-primary">Update currency</button>
-            </div>
         
             
-        </div>
-</React.Fragment>
+        </Widget>
 
         
     );

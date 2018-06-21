@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Widget from './Widget'
+import Icon from './Icon'
 
 class Timer extends Component {
     
@@ -43,19 +45,18 @@ class Timer extends Component {
     
     
     return (
-        <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">
+        <Widget widgetStyling="timerContainer">
         
-            <div className="innerWidget timerContainer">
-                <div className="iconSize">
-                    <ion-icon name="timer"></ion-icon>
-                </div>
+        
+                <Icon icon="timer" />
+
         
                 { countdown }
         
                 <button onClick={this.countdown} className="btn btn-primary">Start</button>
-            </div>
+
         
-        </div>
+        </Widget>
 
 
         

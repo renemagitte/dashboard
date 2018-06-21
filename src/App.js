@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './components/Clock';
-import Whether from './components/Whether';
+import Weather from './components/Weather';
 import Currency from './components/Currency';
 import Timer from './components/Timer';
 import Note from './components/Note';
@@ -90,7 +90,7 @@ class App extends Component {
         
             <div className="row">
                 <Clock />
-                <Whether />
+                <Weather />
                 <Currency />
                 { bonusWidget }
                 <Timer />

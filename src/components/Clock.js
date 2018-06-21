@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Widget from './Widget'
+import Icon from './Icon'
 
 class Clock extends Component {
     
@@ -20,16 +22,13 @@ class Clock extends Component {
   render() {
     
     return (
-        <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">
+        <Widget widgetStyling="clockContainer">
+            <Icon icon="time" />
+  
         
-            <div className="innerWidget clockContainer">
-                <div className="iconSize">
-                    <ion-icon name="time"></ion-icon>
-                </div>
                 { this.state.time.toLocaleTimeString()}
-            </div>
         
-        </div>
+        </Widget>
 
 
         
