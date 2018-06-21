@@ -2,22 +2,13 @@ html, body{
     font-family: 'Rubik', sans-serif;
 }
 
-.widget{
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-}
 
-.innerWidget{
-    background-color: #ffffff;
-    color: black;
-    text-align: center;
-}
 
 
 
 .totalContainer{
     width: 100%;
+    padding: 10px;
 }
     .defaultTheme{
         background-color: lightgrey;    
@@ -30,6 +21,20 @@ html, body{
         background-position: bottom;
     }
 
+.widget{
+    height: 50%;
+/*    border: 1px solid black;*/
+    display: flex;
+    justify-content: center;
+}
+
+.innerWidget{
+    margin: 20px;
+    width: 80%;
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+}
 
 
 
@@ -51,8 +56,10 @@ html, body{
 }
 
 .cartoonContainer{
+/*
     margin: 20px;
     padding: 30px;
+*/
     font-family: 'Yeon Sung', cursive;
 }
 .cartoonContainer img{
@@ -98,6 +105,7 @@ html, body{
         height: 300vh;
     }
     .iconSize{
+        color: lightgrey;
         font-size: 6em;
         padding: 15px;
     }

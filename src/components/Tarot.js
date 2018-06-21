@@ -5,7 +5,8 @@ class Tarot extends Component {
     
     state = {
         tarotDeck: 'rider',
-        turnedCard: false  
+        card: tarotCardBack
+        
     }
 
 //    componentDidMount() {
@@ -17,8 +18,15 @@ class Tarot extends Component {
         return `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg`
     }
     
-    setTurnedCard = () => {
-        this.setState({ turnedCard: !this.state.turnedCard });
+//    setTurnedCard = () => {
+//        this.setState({ turnedCard: !this.state.turnedCard });
+//    }
+    
+    
+    setCard = () => {
+        let number = Math.floor(Math.random() * 78) + 1  
+        let newCard = 'https://gfx.tarot.com/images/site/decks/{this.state.tarotDeck}/full_size/{number}.jpg';
+        this.setState({ card: newCard });
     }
     
     componentDidMount() {
@@ -26,8 +34,6 @@ class Tarot extends Component {
             let storedTarotDeck = JSON.parse(localStorage.getItem('tarotDeck'));
             this.setState({ tarotDeck: storedTarotDeck });
         }
-
-
     }
 
 
@@ -36,18 +42,20 @@ class Tarot extends Component {
       { /* let card = tarotCardBack; */ }
       
             
-        let backOfCard = 'cardObject cardObjectOverlay';
+    let backOfCard = 'cardObject cardObjectOverlay';
     if(!this.state.turnedCard){ backOfCard += ' visible'; }
     
     return (
         
         <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">
             <div className="innerWidget cartoonContainer">
-                <div className={backOfCard} onClick={() => this.setTurnedCard}>
-                    <img src={tarotCardBack} />
-                </div>
-                <div className="cardObject" onClick={() => this.pickACard}>
-                    <img src={this.pickACard()} />
+                <span className="iconSize">
+                    <ion-icon name="planet"></ion-icon>
+                </span>
+
+                <div className="cardObject" onClick={() => this.componentDidMount}>
+                    
+                    <img src={this.state.card} onClick={() => this.componentDidMount} />
                 </div>
         
             </div>

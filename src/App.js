@@ -3,6 +3,7 @@ import './App.css';
 import Clock from './components/Clock';
 import Whether from './components/Whether';
 import Currency from './components/Currency';
+import Timer from './components/Timer';
 import Cartoon from './components/Cartoon';
 import Tarot from './components/Tarot';
 
@@ -46,7 +47,7 @@ class App extends Component {
 
     <React.Fragment>
             <div className="fillButtonDiv" onClick={this.handleToggle}>
-                <ion-icon name="color-fill"></ion-icon>
+                <ion-icon name="settings"></ion-icon>
             </div>
         
         
@@ -65,7 +66,7 @@ class App extends Component {
               </button>
               <div className="dropdown-menu">
                 <a className="dropdown-item" onClick={() => this.setTheme('defaultTheme')}>Default Theme</a>
-                <a className="dropdown-item" onClick={() => this.setTheme('incrementalGameTheme')}>Ode To Incremental Game Theme</a>
+                <a className="dropdown-item" onClick={() => this.setTheme('incrementalGameTheme')}>R.I.P. Incremental Game Theme</a>
               </div>
             </div>
       
@@ -89,8 +90,8 @@ class App extends Component {
                 <Clock />
                 <Whether />
                 <Currency />
+                <Timer />
               
-              <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
               <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
       { /* <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div> */ }
       { bonusWidget }
