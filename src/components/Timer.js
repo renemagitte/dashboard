@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Widget from './Widget'
 import Icon from './Icon'
+import Heading from './Heading'
 
 class Timer extends Component {
     
@@ -49,6 +50,7 @@ class Timer extends Component {
         
         
                 <Icon icon="timer" />
+                <Heading heading="Timer" />
 
         
                 { countdown }

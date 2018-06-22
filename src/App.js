@@ -56,37 +56,46 @@ class App extends Component {
         
         <div className={'totalContainer ' + this.state.theme }>
         
-        <div className={settingsClass}>
+                <div className="mobileMenu">
+                    <a href="#clockContainer"><ion-icon name="time"></ion-icon></a>
+                    <a href="#weatherContainer"><ion-icon name="cloud"></ion-icon></a>
+                    <a href="#currencyContainer"><ion-icon name="cash"></ion-icon></a>
+                    <a href="#tarotContainer"><ion-icon name="planet"></ion-icon></a>
+                    <a href="#timerContainer"><ion-icon name="timer"></ion-icon></a>
+                    <a href="#noteContainer"><ion-icon name="paper-plane"></ion-icon></a>
+                </div>
         
-            <div className="settingsCloseDiv" onClick={this.handleToggle}>
-                <ion-icon name="close"></ion-icon>
-            </div>
-        
-            <div className="btn-group">
-              <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Choose theme
-              </button>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" onClick={() => this.setTheme('defaultTheme')}>Default Theme</a>
-                <a className="dropdown-item" onClick={() => this.setTheme('incrementalGameTheme')}>R.I.P. Incremental Game Theme</a>
-              </div>
-            </div>
-      
-      
-            <div className="btn-group">
-              <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Choose tarot deck
-              </button>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" onClick={() => this.setTarotDeck('rider')}>Rider Waite (Classic)</a>
-                <a className="dropdown-item" onClick={() => this.setTarotDeck('cats-eye')}>Cat's eye</a>
-                <a className="dropdown-item" onClick={() => this.setTarotDeck('gummybear')}>Gummy Bear</a>
-      
-              </div>
-            </div>
-            Refresh page to get the new tarot deck.
-      
-        </div>
+                <div className={settingsClass}>
+
+                    <div className="settingsCloseDiv" onClick={this.handleToggle}>
+                        <ion-icon name="close"></ion-icon>
+                    </div>
+
+                    <div className="btn-group">
+                      <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Choose theme
+                      </button>
+                      <div className="dropdown-menu">
+                        <a className="dropdown-item" onClick={() => this.setTheme('defaultTheme')}>Default Theme</a>
+                        <a className="dropdown-item" onClick={() => this.setTheme('incrementalGameTheme')}>R.I.P. Incremental Game Theme</a>
+                      </div>
+                    </div>
+
+
+                    <div className="btn-group">
+                      <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Choose tarot deck
+                      </button>
+                      <div className="dropdown-menu">
+                        <a className="dropdown-item" onClick={() => this.setTarotDeck('rider')}>Rider Waite (Classic)</a>
+                        <a className="dropdown-item" onClick={() => this.setTarotDeck('cats-eye')}>Cat's eye</a>
+                        <a className="dropdown-item" onClick={() => this.setTarotDeck('gummybear')}>Gummy Bear</a>
+
+                      </div>
+                    </div>
+                    Refresh page to get the new tarot deck.
+
+                 </div>
         
             <div className="row">
                 <Clock />
@@ -94,13 +103,7 @@ class App extends Component {
                 <Currency />
                 { bonusWidget }
                 <Timer />
-                
                 <Note />
-              
-              <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div>
-      { /* <div className="widget col-12 col-sm-6 col-md-4 col-ld-4">col</div> */ }
-      
-                
             </div>
         </div>
     </React.Fragment>

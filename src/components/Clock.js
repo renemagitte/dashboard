@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Widget from './Widget'
 import Icon from './Icon'
+import Heading from './Heading'
 
 class Clock extends Component {
     
@@ -24,9 +25,10 @@ class Clock extends Component {
     return (
         <Widget widgetStyling="clockContainer">
             <Icon icon="time" />
+            <Heading heading="Clock" />
   
         
-                { this.state.time.toLocaleTimeString()}
+                <span className="textBig">{ this.state.time.toLocaleTimeString()}</span>
         
         </Widget>
 

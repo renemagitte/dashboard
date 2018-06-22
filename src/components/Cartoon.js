@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Widget from './Widget'
 import Icon from './Icon'
+import Heading from './Heading'
 import cartoon from './../img/cartoon.png'
 
 class Cartoon extends Component {

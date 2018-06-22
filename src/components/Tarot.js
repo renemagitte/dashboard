@@ -1,27 +1,39 @@
 import React, { Component } from 'react';
 import Widget from './Widget'
 import Icon from './Icon'
+import Heading from './Heading'
 import tarotCardBack from './../img/tarotCardBack.jpg'
+import rider1 from './../img/rider/1.jpg'
+import rider2 from './../img/rider/2.jpg'
+import rider3 from './../img/rider/3.jpg'
+import rider4 from './../img/rider/4.jpg'
+
 
 class Tarot extends Component {
     
     state = {
         tarotDeck: 'rider',
-        card: tarotCardBack,
-        turned: false,
-        cardBaseUrl: 'https://gfx.tarot.com/images/site/decks/'
+        startCard: tarotCardBack,
+        cardTurns: 0,
+        number: 1,
+        setCard: this.startCard
     }
 
     componentDidMount() {
         this.setState({ tarotDeck: this.props.tarotDeck });
     }
 
+
     pickACard = () => {
-        this.setState({ turned: true });
+        this.setState({ cardTurns: this.state.cardTurns + 1 });
         
-//        let number = Math.floor(Math.random() * 78) + 1;
+        let number = Math.floor(Math.random() * 4) + 1;
         
-//        return `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg`
+        let newCard = this.state.tarotDeck + number;
+        
+        
+        this.setState({ setCard: newCard });
+
         
 //        this.setState({ card: `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg` });
 //        let newCard = `https://gfx.tarot.com/images/site/decks/${this.state.tarotDeck}/full_size/${number}.jpg`
@@ -34,6 +46,11 @@ class Tarot extends Component {
 //    setTurnedCard = () => {
 //        this.setState({ turnedCard: !this.state.turnedCard });
 //    }
+    
+    setCardTurns = () => {
+        this.setState({ cardTurns: this.state.cardTurns + 1 });
+
+    }
     
     
 //    setCard = () => {
@@ -52,7 +69,14 @@ class Tarot extends Component {
 
   render() {
       
-      let showCard = this.state.card;
+    
+      
+      let showCard;
+      if(this.state.cardTurns === 0){
+          showCard = <img src={tarotCardBack} />
+      }else{
+        showCard = <img src={this.state.setCard} />
+      }      
       
       if(this.state.turned === true){
         let number = Math.floor(Math.random() * 78) + 1;
@@ -74,10 +98,13 @@ class Tarot extends Component {
 
                 <Icon icon="planet" />
 
-                    <img src={{uri : 'https://gfx.tarot.com/images/site/decks/rider/full_size/33.jpg' }} />
+                { showCard }
+                    
+        
+
                     
 
-                <button onClick={() => this.pickACard() } className="btn btn-primary">Pick a card</button>
+                <button onClick={this.pickACard} className="btn btn-primary">Pick a card</button>
         
         
         </Widget>
@@ -89,3 +116,17 @@ class Tarot extends Component {
 }
 
 export default Tarot;
+
+//<img src={{uri : 'https://gfx.tarot.com/images/site/decks/rider/full_size/33.jpg' }} />
+
+//                  'http://download.spinetix.com/content/widgets/icons/weather/' + props['currentState'][city + 'Data']['icon'] + '.png'
+
+//                    <img
+//                      src={
+//                    'https://gfx.tarot.com/images/site/decks/rider/full_size/' + 33 + 'jpg'
+//        
+//  
+//                        }
+//                      className='smallWeatherIcon'
+//                      alt='weather icon'
+//                    />
