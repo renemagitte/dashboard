@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Widget from './Widget'
+import Div from './Div'
 import Icon from './Icon'
 import Heading from './Heading'
+
 
 class Timer extends Component {
     
@@ -51,11 +53,13 @@ class Timer extends Component {
         
                 <Icon icon="timer" />
                 <Heading heading="Timer" />
-
         
-                { countdown }
-        
-                <button onClick={this.countdown} className="btn btn-primary">Start</button>
+                <Div style="width:100%;text-align:center;border:1px solid red;">
+                    <span className="textBig"> { countdown } </span>
+                </Div>
+                <Div style="width:100%;text-align:center;border:1px solid red;">
+                    <button onClick={this.countdown} className="btn btn-primary">Start</button>
+                </Div>
 
         
         </Widget>

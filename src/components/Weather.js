@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Widget from './Widget'
+import Div from './Div'
 import Icon from './Icon'
 import Heading from './Heading'
 
@@ -33,12 +34,31 @@ class Weather extends Component {
                 this.setState({ error })
             });
         }
+     
+        weatherTips = () => {
+            let description = this.state.weatherDescription;
+            let temp = this.state.weatherTemp;
+            
+            let rain = description.search("rain");
+            if(rain >= 0){ return "don't forget to bring an umbrella!";}
+            
+            let sun = description.search("sun");
+            if((sun >= 0) && (temp > 26)){ return "so off to the beach!?";}
+            
+            let scatteredClouds = description.search("scattered");
+            if(scatteredClouds >= 0){ return "anything is possible!";}
+
+//            if(temp < 0){ return "let's just stay inside, shall we?";}
+        }
 
   render() {
       //forecast?q=' + city + '&units=metric
       
-      console.log(this.state.weaterIcon)
+      console.log(this.state.weatherDescription)
       
+      var str = this.state.weatherDescription;
+        var n = str.search("scattered");
+      console.log(n);
     
     return (
         <Widget widgetStyling="weatherContainer">
@@ -46,10 +66,25 @@ class Weather extends Component {
         
                 <Icon icon="cloud" />
                 <Heading heading="Weather" />
-       The weather could be describled as {this.state.weatherDescription} with a temerature of {this.state.weatherTemp}
+        
+                <Div style="width:100%;text-align:center;">
+                    *IMG*
+                </Div>
+        
+                <Div style="width:100%;text-align:center;">
+                    <span className="textBig"> {this.state.weatherTemp} °C </span>
+                </Div>
+        
+                <Div style="width:90%;text-align:center;">
+                    <span className="textSubtle"> It's {this.state.weatherDescription} outside, </span>
+                </Div>
+        
+                <Div style="width:90%;text-align:center;">
+                    <span className="textSubtle"> {this.weatherTips()} </span>
+                </Div>
+
         
         
-        <img src={this.state.weatherDescription} />
         
     
         

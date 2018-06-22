@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Widget from './Widget'
 import Icon from './Icon'
+import Div from './Div'
 import Heading from './Heading'
 
 class Currency extends Component {
@@ -44,10 +45,21 @@ class Currency extends Component {
 
                 <Icon icon="cash" />
                 <Heading heading="Exchange rate" />
+        
+                <Div style="width:100%;text-align:center;">
+                    <span className="textMedium"> 1 EUR = {this.state.currentSEK} SEK </span>
+                </Div>
+        
+                <Div style="width:90%;text-align:center;">
+                    <span className="textSubtle"> Uppdaterat: {this.state.date} </span>
+                </Div>
+        
+                <Div style="width:90%;text-align:center;">
+                    <button onClick={this.fetchCurrency} className="btn btn-primary">Update currency</button>
+                </Div>
               
-                1 EUR = {this.state.currentSEK} SEK <br/>
-                Uppdaterat: {this.state.date}
-        <button onClick={this.fetchCurrency} className="btn btn-primary">Update currency</button>
+                
+        
         
             
         </Widget>

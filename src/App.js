@@ -48,7 +48,7 @@ class App extends Component {
     return (
 
     <React.Fragment>
-            <div className="fillButtonDiv" onClick={this.handleToggle}>
+            <div className="settingsButton" onClick={this.handleToggle}>
                 <ion-icon name="settings"></ion-icon>
             </div>
         
@@ -57,6 +57,7 @@ class App extends Component {
         <div className={'totalContainer ' + this.state.theme }>
         
                 <div className="mobileMenu">
+                    <ion-icon name="settings" onClick={this.handleToggle}></ion-icon>
                     <a href="#clockContainer"><ion-icon name="time"></ion-icon></a>
                     <a href="#weatherContainer"><ion-icon name="cloud"></ion-icon></a>
                     <a href="#currencyContainer"><ion-icon name="cash"></ion-icon></a>
