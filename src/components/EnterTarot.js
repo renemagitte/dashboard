@@ -15,24 +15,30 @@ class Tarot extends Component {
     
     state = {
         tarotDeck: 'rider',
-//        card1: false,
-//        card2: false,
-//        card3: false,
-//        card4: false,
-//        card5: false,
-//        card6: false,
+        card1: false,
+        card1img: false,
+        card2: false,
+        card3: false,
+        card4: false,
+        card5: false,
+        card6: false,
         numberOfCards: 0
 
     }
 
     componentDidMount() {
-        this.setState({ tarotDeck: this.props.tarotDeck
-//                        card1: this.props.tarotDeck + (Math.floor(Math.random() * 4) + 1)
+        this.setState({  tarotDeck: this.props.tarotDeck,
+                    card1img: <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />,
+                    card2: <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} /> 
                       });
     }
 
     pickACard = () => {
-        this.setState({ numberOfCards: this.state.numberOfCards + 1 });
+        this.setState({ numberOfCards: this.state.numberOfCards + 1
+//                       card1: <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />,
+                      
+                      
+                      });
     }
     
     generateRandomDigit = () => {
@@ -41,10 +47,9 @@ class Tarot extends Component {
         return digit;
     }
     
-//    setCardStatus = () => {
-//        this.setState({ tarotDeck: this.props.tarotDeck });
-//        
-//    }
+    setCardStatus = (event) => {
+        this.setState({ [event.target.name]: true });  
+    }
     
 
 
@@ -55,16 +60,21 @@ class Tarot extends Component {
       
 
 //      let card1 = <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />
-      let card1 = '';
-      let card2 = '';
-      let card3 = '';
-      let card4 = '';
-      let card5 = '';
-      let card6 = '';
+      let card1 = <img src={tarotCardBack} name="card1" onClick={this.setCardStatus} />;
+      let card2 = <img src={tarotCardBack} name="card2" onClick={this.setCardStatus} />;
+      let card3 = <img src={tarotCardBack} />;
+      let card4 = <img src={tarotCardBack} />;
+      let card5 = <img src={tarotCardBack} />;
+      let card6 = <img src={tarotCardBack} />;
                                      
-    if(this.state.numberOfCards === 1){
-          card1 = <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} /> 
+    if(this.state.numberOfCards === 0){
+//          card1 = <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />
+            card1 = this.state.card1img;
       }
+//      else if(this.state.numberOfCards === 2){
+////        card2 = <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} /> 
+//          card2 = this.state.card2;
+//    }
 
     
     return (
@@ -75,24 +85,23 @@ class Tarot extends Component {
         
             <div className="tarotGameContainer">
         
-                <div className="tarotDeck" onClick={this.pickACard}>
-                    Pick a card from the deck:<br/>
-                    <img src={tarotCardBack} />
+                <div className="tarotSpread">
+
+                    <div className="tarotSpreadSub standardFlex card1"> { card1 } </div>
+                    <div className="tarotSpreadSub standardFlex card2"> { card2 } </div>
+
+                    <div className="tarotSpreadSub standardFlex card3"> { card3 }</div>
+                    <div className="tarotSpreadSub standardFlex card4"> { card4 } </div>
+                    <div className="tarotSpreadSub standardFlex card5"> { card5 } </div>
+
+                    <div className="tarotSpreadSub standardFlex card6"> { card6 }</div>
                 </div>
         
-                <div className="tarotSpread">
-//                    <div className="card1"> 
-//                        <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} /> 
-//                    </div>
-                    <div className="card1"> { card1 } </div>
-                    <div className="card2"> { card2 } </div>
-
-                    <div className="card3"> { card3 }</div>
-                    <div className="card4"> { card4 } </div>
-                    <div className="card5"> { card5 } </div>
-
-                    <div className="card6"> { card6 }</div>
-                </div>
+                    <Div extraDivClass="popUpExit">
+                        <button className="btn btn-success btn-lg" onClick={this.props.handleToggle}>
+                            Done <ion-icon name="exit"></ion-icon>
+                        </button>
+                    </Div>
 
         
             </div>
