@@ -54,13 +54,12 @@ class Weather extends Component {
         }
 
   render() {
-      //forecast?q=' + city + '&units=metric
       
-      console.log(this.state.weatherDescription)
-      
-      var str = this.state.weatherDescription;
-        var n = str.search("scattered");
-      console.log(n);
+      let weather2ndLine = this.weatherTips();
+      if(weather2ndLine === undefined){
+          weather2ndLine = 'whether you like it or not ¯\\_(ツ)_/¯'
+      }
+      console.log(weather2ndLine);
     
     return (
         <Widget widgetStyling="weatherContainer">
@@ -85,7 +84,9 @@ class Weather extends Component {
                 </Div>
         
                 <Div style="width:90%;text-align:center;">
-                    <span className="textSubtle"> {this.weatherTips()} </span>
+                    <span className="textSubtle"> 
+                        { weather2ndLine }
+                    </span>
                 </Div>
 
         

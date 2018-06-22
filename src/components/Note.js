@@ -7,7 +7,8 @@ import Div from './Div'
 class Note extends Component {
     
     state = {
-        note: localStorage.getItem('note')
+        note: localStorage.getItem('note'),
+        handwriting: this.props.handwriting
       }
       
     saveNote = (event) => {

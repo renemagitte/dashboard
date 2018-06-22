@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Settings from './components/Settings';
 import Clock from './components/Clock';
 import Weather from './components/Weather';
 import Currency from './components/Currency';
@@ -7,14 +8,16 @@ import Timer from './components/Timer';
 import Note from './components/Note';
 import Cartoon from './components/Cartoon';
 import Tarot from './components/Tarot';
+import EnterTarot from './components/EnterTarot';
 
 
 class App extends Component {
     
     state = {
         theme: 'defaultTheme',
-//        tarotDeck: 'rider',
-        toggleSettings: false
+        handwriting: '',
+        toggleSettings: false,
+        toggleEnterTarot: false
     }
 
 //    componentDidMount() {
@@ -32,29 +35,56 @@ class App extends Component {
         this.setState({ theme: incomingTheme });
     }
     
-    setTarotDeck = (incomingDeck) => {
-//        this.setState({ tarotDeck: incomingDeck});
-        localStorage.setItem('tarotDeck', JSON.stringify(incomingDeck));
+    setHandwriting = (event) => {
+        this.setState({ handwriting: event.target.value });
+    }
+    
+//    setTarotDeck = (incomingDeck) => {
+//        localStorage.setItem('tarotDeck', JSON.stringify(incomingDeck));
+//    }
+    
+    enterTarot = () => {
+        this.setState({ toggleEnterTarot: !this.state.toggleSettings });
     }
     
   render() {
-     
+    
+      { /* 
     let settingsClass = 'settingsContainer w3-animate-opacity';
     if(!this.state.toggleSettings){ settingsClass += ' invisible'; }
+    */ }
       
-    let bonusWidget = <Tarot tarotDeck={this.state.tarotDeck} setTarotDeck={this.setTarotDeck} />
+    let bonusWidget = <Tarot tarotDeck={this.state.tarotDeck} setTarotDeck={this.setTarotDeck} enterTarot={this.enterTarot}/>
     if(this.state.theme === 'incrementalGameTheme'){ bonusWidget = <Cartoon />}
+    
+    let enterTarot = '';
+    if(this.state.toggleEnterTarot){
+        enterTarot = <EnterTarot tarotDeck={this.state.tarotDeck} />
+    }
+                                    
+    let settings = '';
+    if(this.state.toggleSettings){
+        settings =  <Settings setTheme={this.setTheme} 
+                                setHandwriting={this.setHandwriting} 
+                                handleToggle={this.handleToggle} 
+                                setTarotDeck={this.setTarotDeck} 
+                    />
+    }
     
     return (
 
-    <React.Fragment>
+        <React.Fragment>
+        
+            { enterTarot }
+        
+            { settings }
+        
             <div className="settingsButton" onClick={this.handleToggle}>
                 <ion-icon name="settings"></ion-icon>
             </div>
         
+            <div className={'totalContainer ' + this.state.theme }>
         
-        
-        <div className={'totalContainer ' + this.state.theme }>
         
                 <div className="mobileMenu">
                     <ion-icon name="settings" onClick={this.handleToggle}></ion-icon>
@@ -66,8 +96,10 @@ class App extends Component {
                     <a href="#noteContainer"><ion-icon name="paper-plane"></ion-icon></a>
                 </div>
         
+        
+        
+                { /* SETTINGS! MOVE THIS 
                 <div className={settingsClass}>
-
                     <div className="settingsCloseDiv" onClick={this.handleToggle}>
                         <ion-icon name="close"></ion-icon>
                     </div>
@@ -82,7 +114,6 @@ class App extends Component {
                       </div>
                     </div>
 
-
                     <div className="btn-group">
                       <button className="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Choose tarot deck
@@ -95,19 +126,24 @@ class App extends Component {
                       </div>
                     </div>
                     Refresh page to get the new tarot deck.
-
                  </div>
+                END OF SETTINGS! MOVE THIS */ }
         
-            <div className="row">
-                <Clock />
-                <Weather />
-                <Currency />
-                { bonusWidget }
-                <Timer />
-                <Note />
+      
+
+      
+      
+                <div className="row">
+                    <Clock />
+                    <Weather />
+                    <Currency />
+                    { bonusWidget }
+                    <Timer />
+                    <Note handwriting={this.state.handwriting} />
+                </div>
+      
             </div>
-        </div>
-    </React.Fragment>
+        </React.Fragment>
         
     );
   }

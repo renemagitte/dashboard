@@ -107,7 +107,7 @@ class Tarot extends Component {
                 </Div>
                     
 
-                <button onClick={this.pickACard} className="btn btn-primary">Cosmic insights</button>
+                <button onClick={this.props.enterTarot} className="btn btn-primary">Get some cosmic insights</button>
         
         
         </Widget>
