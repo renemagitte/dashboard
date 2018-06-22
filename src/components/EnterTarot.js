@@ -47,8 +47,8 @@ class Tarot extends Component {
         return digit;
     }
     
-    setCardStatus = (event) => {
-        this.setState({ [event.target.name]: true });  
+    setCardStatus = (card) => {
+        this.setState({ card: !this.state.card });  
     }
     
 
@@ -56,25 +56,28 @@ class Tarot extends Component {
 
   render() {
       
+      let card1;
+      if(!this.state.card1){
+          card1 = <img src={tarotCardBack} name="card1" onClick={ () => this.setCardStatus(card1) } />;  
+      }else{
+         card1 = this.state.card1img; 
+      }
+      
       
       
 
-//      let card1 = <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />
-      let card1 = <img src={tarotCardBack} name="card1" onClick={this.setCardStatus} />;
+
+//      let card1 = <img src={tarotCardBack} name="card1" onClick={this.setCardStatus} />;
       let card2 = <img src={tarotCardBack} name="card2" onClick={this.setCardStatus} />;
       let card3 = <img src={tarotCardBack} />;
       let card4 = <img src={tarotCardBack} />;
       let card5 = <img src={tarotCardBack} />;
       let card6 = <img src={tarotCardBack} />;
-                                     
-    if(this.state.numberOfCards === 0){
-//          card1 = <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />
-            card1 = this.state.card1img;
-      }
-//      else if(this.state.numberOfCards === 2){
-////        card2 = <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} /> 
-//          card2 = this.state.card2;
-//    }
+//                                     
+//    if(this.state.numberOfCards === 0){
+//            card1 = this.state.card1img;
+//      }
+
 
     
     return (
