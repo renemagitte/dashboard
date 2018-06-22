@@ -8,7 +8,7 @@ class Note extends Component {
     
     state = {
         note: localStorage.getItem('note'),
-        handwriting: this.props.handwriting
+//        handwriting: this.props.handwriting
       }
       
     saveNote = (event) => {
@@ -28,7 +28,7 @@ class Note extends Component {
                 <Div><Heading heading="Note" /></Div>
  
                 <Div extraDivClass="height100">
-                    <textarea id="textarea" value={this.state.note} onChange={this.saveNote} placeholder='Write something here' />
+                    <textarea className={this.props.handwriting} id="textarea" value={this.state.note} onChange={this.saveNote} placeholder='Write something here' />
                 </Div>
         
 

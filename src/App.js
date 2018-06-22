@@ -15,7 +15,8 @@ class App extends Component {
     
     state = {
         theme: 'defaultTheme',
-        handwriting: '',
+        tarotDeck: 'rider',
+        handwriting: 'gaegu',
         toggleSettings: false,
         toggleEnterTarot: false
     }
@@ -31,12 +32,18 @@ class App extends Component {
         this.setState({ toggleSettings: !this.state.toggleSettings });
     }
     
-    setTheme = (incomingTheme) => {
-        this.setState({ theme: incomingTheme });
-    }
+//    setTheme = (event) => {
+//        this.setState({ theme: event.target.value });
+//    }
+//    setHandwriting = (event) => {
+//        this.setState({ handwriting: event.target.value });
+//    }
+//    setTarotDeck = (event) => {
+//        this.setState({ tarotDeck: event.target.value });
+//    }
     
-    setHandwriting = (event) => {
-        this.setState({ handwriting: event.target.value });
+    setSettings = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
     }
     
 //    setTarotDeck = (incomingDeck) => {
@@ -68,6 +75,7 @@ class App extends Component {
                                 setHandwriting={this.setHandwriting} 
                                 handleToggle={this.handleToggle} 
                                 setTarotDeck={this.setTarotDeck} 
+                                setSettings={this.setSettings}
                     />
     }
     

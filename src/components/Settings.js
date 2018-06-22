@@ -4,14 +4,12 @@ import Icon from './Icon'
 import Heading from './Heading'
 import Div from './Div'
 
+import rider3 from './../img/rider/3.jpg'
+import gummybear3 from './../img/gummybear/3.jpg'
+import catseye3 from './../img/catseye/3.jpg'
+
 class Note extends Component {
     
-    state = {
-        handwriting: ''
-      }
-      
-
-
   render() {
 
     return (
@@ -26,28 +24,81 @@ class Note extends Component {
                 </Div>
         
                 <Div>
-        
-        <form>
-          <input type="radio" name="gender" value="male" checked /> Male
-          <input type="radio" 
-                    name="handwriting" 
-                    value="hej"
-                    onChange={this.props.setHandwriting} 
-        /> Hej
-          <input type="radio" name="gender" value="other" className="input-group mb-3" /> Other
-        </form>
-        
-        
-                    <div className="input-group mb-3">
-                      <div className="input-group-prepend">
-                        <div className="input-group-text">
-                          <input type="checkbox" aria-label="Checkbox for following text input" />
-                        </div>
-                      </div>
-                    </div>
+                    <Div>
+                        <Div extraDivClass="settingsTitle">
+                            Choose theme:
+                        </Div>
+                        <Div extraDivClass="standardFlex">
+                            <Div extraDivClass="divWidth33percent">
+                                <input type="radio" name="theme" value="defaultTheme" onChange={this.props.setSettings} />
+                                <span className="justSomeSpace">Default Theme</span>
+                            </Div>
+                            <Div extraDivClass="divWidth33percent">
+                                <input type="radio" name="theme" value="incrementalGameTheme" onChange={this.props.setSettings} />
+                                <span className="justSomeSpace">R.I.P. Incremental Game Theme</span>
+                            </Div>
+                            <Div extraDivClass="divWidth33percent">
+                            </Div>
 
-                </Div>
+                        </Div>
         
+
+                    </Div>
+                </Div> 
+        
+                <Div>
+                    <Div>
+                        <Div extraDivClass="settingsTitle">
+                            Choose handwriting:
+                        </Div>
+                        <Div extraDivClass="standardFlex">
+                            <Div extraDivClass="divWidth33percent">
+                                <input type="radio" name="handwriting" value="gaegu" onChange={this.props.setSettings} />
+                                <span className="gaegu justSomeSpace">Childish</span>
+                            </Div>
+                            <Div extraDivClass="divWidth33percent">
+                                <input type="radio" name="handwriting" value="reeniebeanie" onChange={this.props.setSettings} />
+                                <span className="reeniebeanie justSomeSpace">Looks like mine</span>
+                            </Div>
+                            <Div extraDivClass="divWidth33percent">
+                            </Div>
+
+                        </Div>
+        
+
+                    </Div>
+                </Div> 
+        
+        
+                <Div>
+                    <Div>
+                        <Div extraDivClass="settingsTitle">
+                            Choose tarot card deck:
+                        </Div>
+                        <Div extraDivClass="standardFlex">
+                            <Div extraDivClass="divWidth33percent settingsTarotImg">
+                                <input type="radio" name="tarotDeck" value="rider" onChange={this.props.setSettings} />
+                                <span className="justSomeSpace">Rider Waite (Classic)</span><br/>
+                                <img src={rider3} /> 
+                            </Div>
+                            <Div extraDivClass="divWidth33percent settingsTarotImg">
+                                <input type="radio" name="tarotDeck" value="cats-eye" onChange={this.props.setSettings} />
+                                <span className="justSomeSpace">Cat's eye</span><br/>
+                                <img src={catseye3} /> 
+                            </Div>
+                            <Div extraDivClass="divWidth33percent settingsTarotImg">
+                                <input type="radio" name="tarotDeck" value="gummybear" onChange={this.props.setSettings} />
+                                <span className="justSomeSpace">Gummybear</span><br/>
+                                <img src={gummybear3} /> 
+                            </Div>
+                        </Div>
+ 
+
+                    </Div>
+
+                </Div> 
+        
+      { /*
                     <Div>
                 
                         <div className="btn-group">
@@ -61,7 +112,10 @@ class Note extends Component {
                         </div>
 
                     </Div>
-
+            */ }
+                  
+        
+{ /*
                     <Div>
                                 
                         <div className="btn-group">
@@ -77,6 +131,7 @@ class Note extends Component {
                         </div>
                         Refresh page to get the new tarot deck.
                     </Div>
+      */ }
 
                     <Div extraDivClass="popUpExit">
                         <button className="btn btn-success btn-lg" onClick={this.props.handleToggle}>
@@ -85,7 +140,6 @@ class Note extends Component {
                     </Div>
 
                 </div>
-
 
         </React.Fragment>
         
