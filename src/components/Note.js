@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Widget from './Widget'
 import Icon from './Icon'
 import Heading from './Heading'
+import Div from './Div'
 
 class Note extends Component {
     
@@ -21,12 +22,13 @@ class Note extends Component {
         <Widget widgetStyling="noteContainer">
         
 
-        
-                <Icon icon="paper-plane" />
-                <Heading heading="Note" />
+                <Div>
+                <Icon icon="paper-plane" /></Div>
+                <Div><Heading heading="Note" /></Div>
  
-        
-                <textarea id="textarea" value={this.state.note} onChange={this.saveNote} placeholder='Write something here' />
+                <Div extraDivClass="height100">
+                    <textarea id="textarea" value={this.state.note} onChange={this.saveNote} placeholder='Write something here' />
+                </Div>
         
 
 

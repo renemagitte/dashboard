@@ -8,7 +8,7 @@ import Heading from './Heading'
 class Timer extends Component {
     
         state = {
-            milliseconds: 20000,
+            milliseconds: 300000,
           }
 
           countdown = () => {
@@ -50,21 +50,17 @@ class Timer extends Component {
     return (
         <Widget widgetStyling="timerContainer">
         
-        
                 <Icon icon="timer" />
                 <Heading heading="Timer" />
         
-                <Div style="width:100%;text-align:center;border:1px solid red;">
+                <Div>
                     <span className="textBig"> { countdown } </span>
                 </Div>
-                <Div style="width:100%;text-align:center;border:1px solid red;">
+                <Div extraDivClass="buttonPadding">
                     <button onClick={this.countdown} className="btn btn-primary">Start</button>
                 </Div>
 
-        
         </Widget>
-
-
         
     );
   }

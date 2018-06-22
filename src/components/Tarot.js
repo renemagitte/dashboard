@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import Widget from './Widget'
 import Icon from './Icon'
 import Heading from './Heading'
+import Div from './Div'
+
 import tarotCardBack from './../img/tarotCardBack.jpg'
+import turningTarot from './../img/turningTarot.gif'
+import frontTarot from './../img/frontTarot.png'
 import rider1 from './../img/rider/1.jpg'
 import rider2 from './../img/rider/2.jpg'
 import rider3 from './../img/rider/3.jpg'
@@ -97,14 +101,13 @@ class Tarot extends Component {
         <Widget widgetStyling="tarotContainer">
 
                 <Icon icon="planet" />
-
-                { showCard }
+                <Heading heading="Tarot" />
+                <Div extraDivClass="frontTarot">
+                    <img src={frontTarot} />
+                </Div>
                     
-        
 
-                    
-
-                <button onClick={this.pickACard} className="btn btn-primary">Pick a card</button>
+                <button onClick={this.pickACard} className="btn btn-primary">Cosmic insights</button>
         
         
         </Widget>

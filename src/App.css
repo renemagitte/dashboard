@@ -11,6 +11,16 @@ h1{
     color: darkgrey;
 }
 
+.divStandard{
+    width: 100%;
+    text-align: center;
+}
+
+.buttonPadding{
+    padding: 20px;
+}
+
+
 
 
 
@@ -49,11 +59,12 @@ h1{
     .iconSize{
         width: 100%;
         color: lightgray;
-/*        border: 1px solid green;*/
     }
 
 
-
+.frontTarot img{
+    width: 110px;
+}
 
 
 
@@ -91,7 +102,7 @@ h1{
 }
 textarea{
     width: 90%;
-    height: 190px;
+    height: 160px;
     font-family: 'Gaegu', cursive;
     font-size: 1.4em;
     border: none;
@@ -176,6 +187,10 @@ font-family: 'Rock Salt', cursive;
 .textMedium{
     font-size: 2em;    
 }
+textarea{
+    width: 90%;
+    height: 360px;
+}
     
     .settingsButton{
         display: none;
@@ -255,6 +270,7 @@ font-family: 'Rock Salt', cursive;
     font-size: 1.4em;    
 }
     
+/*
     .clockContainer{
         height: 70%;
     }
@@ -263,6 +279,11 @@ font-family: 'Rock Salt', cursive;
         border: 1px solid red;
         height: 110%;
         margin-top: -50px;
+    }
+*/
+    
+    .currentWeatherIcon img{
+        width: 50px;
     }
     
     .mobileMenu{

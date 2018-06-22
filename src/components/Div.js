@@ -4,7 +4,7 @@ function Div(props) {
 
     return(  
         
-        <div style={props.divStyling}>
+        <div className={'divStandard ' + props.extraDivClass}>
                 {props.children}
         </div>
         

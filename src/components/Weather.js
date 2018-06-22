@@ -10,7 +10,8 @@ class Weather extends Component {
         weather: '',
         weatherDescription: '',
         weatherTemp: '',
-        weaterIcon: ''
+        weaterIcon: '',
+        weaterIcon2: ''
       }
 
       componentDidMount() {
@@ -27,7 +28,8 @@ class Weather extends Component {
                 this.setState({ weather: data.list["0"], 
                                weatherDescription: data.list["0"].weather["0"].description, 
                                weatherTemp: data.list["0"].main.temp,
-                               weatherIcon: 'http://openweathermap.org/img/w/' + data.list["0"].weather["0"].icon + '.png'
+                               weatherIcon: data.list["0"].weather["0"].icon,
+                               weatherIcon2: 'http://openweathermap.org/img/w/' + data.list["0"].weather["0"].icon + '.png'
                               })
             },
             (error) => {
@@ -67,8 +69,11 @@ class Weather extends Component {
                 <Icon icon="cloud" />
                 <Heading heading="Weather" />
         
-                <Div style="width:100%;text-align:center;">
-                    *IMG*
+                <Div extraDivClass="currentWeatherIcon">
+                    <img src={'http://download.spinetix.com/content/widgets/icons/weather/' + this.state.weatherIcon + '.png'}
+                          alt='weather icon'>
+                    </img>
+        
                 </Div>
         
                 <Div style="width:100%;text-align:center;">
