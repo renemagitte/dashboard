@@ -81,11 +81,14 @@ class Note extends Component {
                                 <span className="justSomeSpace">Rider Waite (Classic)</span><br/>
                                 <img src={rider3} /> 
                             </Div>
+      
+      { /*
                             <Div extraDivClass="divWidth33percent settingsTarotImg">
                                 <input type="radio" name="tarotDeck" value="cats-eye" onChange={this.props.setSettings} />
                                 <span className="justSomeSpace">Cat's eye</span><br/>
                                 <img src={catseye3} /> 
                             </Div>
+        */ }
                             <Div extraDivClass="divWidth33percent settingsTarotImg">
                                 <input type="radio" name="tarotDeck" value="gummybear" onChange={this.props.setSettings} />
                                 <span className="justSomeSpace">Gummybear</span><br/>

@@ -133,6 +133,7 @@ font-family: 'Rock Salt', cursive;
     .settingsTitle{
         text-align: left;
         padding-left: 20px;
+        background-color: lightgray;
     }
 
     .settingsTarotImg img{
@@ -157,7 +158,7 @@ font-family: 'Rock Salt', cursive;
         width: 100%;
         height: 100%;
         background-color: #000000;
-        opacity: 0.8;
+        opacity: 0.9;
         position: absolute;
         z-index: 97;
         margin: 0px auto;

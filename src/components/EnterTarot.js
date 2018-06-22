@@ -18,18 +18,25 @@ class Tarot extends Component {
         card1: false,
         card1img: false,
         card2: false,
+        card2img: false,
         card3: false,
+        card3img: false,
         card4: false,
+        card4img: false,
         card5: false,
+        card5img: false,
         card6: false,
-        numberOfCards: 0
-
+        card6img: false
     }
 
     componentDidMount() {
-        this.setState({  tarotDeck: this.props.tarotDeck,
-                    card1img: <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />,
-                    card2: <img src={require(`./../img/${this.state.tarotDeck}/${this.generateRandomDigit()}.jpg`)} /> 
+        this.setState({  
+                    card1img: <img src={require(`./../img/${this.props.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />,
+                    card2img: <img src={require(`./../img/${this.props.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />,
+                    card3img: <img src={require(`./../img/${this.props.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />, 
+                    card4img: <img src={require(`./../img/${this.props.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />, 
+                    card5img: <img src={require(`./../img/${this.props.tarotDeck}/${this.generateRandomDigit()}.jpg`)} />, 
+                    card6img: <img src={require(`./../img/${this.props.tarotDeck}/${this.generateRandomDigit()}.jpg`)} /> 
                       });
     }
 
@@ -43,12 +50,12 @@ class Tarot extends Component {
     
     generateRandomDigit = () => {
         /* number from 1-78 (4 testing digit) */
-        let digit = Math.floor(Math.random() * 4) + 1;
+        let digit = Math.floor(Math.random() * 78) + 1;
         return digit;
     }
     
     setCardStatus = (card) => {
-        this.setState({ card: !this.state.card });  
+        this.setState({ [card]: !this.state.card });  
     }
     
 
@@ -58,25 +65,53 @@ class Tarot extends Component {
       
       let card1;
       if(!this.state.card1){
-          card1 = <img src={tarotCardBack} name="card1" onClick={ () => this.setCardStatus(card1) } />;  
-      }else{
+          card1 = <img src={tarotCardBack} onClick={ () => this.setCardStatus('card1') } />;  
+      }else if(this.state.card1){
          card1 = this.state.card1img; 
       }
       
+      let card2;
+      if(!this.state.card2){
+          card2 = <img src={tarotCardBack} onClick={ () => this.setCardStatus('card2') } />;  
+      }else if(this.state.card2){
+         card2 = this.state.card2img; 
+      }
+      
+      let card3;
+      if(!this.state.card3){
+          card3 = <img src={tarotCardBack} onClick={ () => this.setCardStatus('card3') } />;  
+      }else if(this.state.card3){
+         card3 = this.state.card3img; 
+      }
+      
+      let card4;
+      if(!this.state.card4){
+          card4 = <img src={tarotCardBack} onClick={ () => this.setCardStatus('card4') } />;  
+      }else if(this.state.card4){
+         card4 = this.state.card4img; 
+      }
+      
+      let card5;
+      if(!this.state.card5){
+          card5 = <img src={tarotCardBack} onClick={ () => this.setCardStatus('card5') } />;  
+      }else if(this.state.card5){
+         card5 = this.state.card5img; 
+      }
+      
+      let card6;
+      if(!this.state.card6){
+          card6 = <img src={tarotCardBack} onClick={ () => this.setCardStatus('card6') } />;  
+      }else if(this.state.card6){
+         card6 = this.state.card6img; 
+      }
+      
+
+      
       
       
 
 
-//      let card1 = <img src={tarotCardBack} name="card1" onClick={this.setCardStatus} />;
-      let card2 = <img src={tarotCardBack} name="card2" onClick={this.setCardStatus} />;
-      let card3 = <img src={tarotCardBack} />;
-      let card4 = <img src={tarotCardBack} />;
-      let card5 = <img src={tarotCardBack} />;
-      let card6 = <img src={tarotCardBack} />;
-//                                     
-//    if(this.state.numberOfCards === 0){
-//            card1 = this.state.card1img;
-//      }
+
 
 
     
@@ -101,7 +136,7 @@ class Tarot extends Component {
                 </div>
         
                     <Div extraDivClass="popUpExit">
-                        <button className="btn btn-success btn-lg" onClick={this.props.handleToggle}>
+                        <button className="btn btn-success btn-lg" onClick={this.props.handleTarotToggle}>
                             Done <ion-icon name="exit"></ion-icon>
                         </button>
                     </Div>
